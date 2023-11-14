@@ -1,14 +1,10 @@
 #!/system/bin/sh
 
-MODE="everything-profile"
+MODE="verify"
 
-echo ">>> PART 1"
+echo ">>> Compiling"
 echo
-cmd package compile -a -f -m "$MODE"
-
-echo ">>> PART 2"
-echo
-cmd package compile -a -f --compile-layouts
+cmd package compile -a -f --full -m "$MODE"
 
 echo ">>> Cleaning up"
 cmd package bg-dexopt-job
